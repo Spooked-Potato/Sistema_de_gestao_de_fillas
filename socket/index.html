@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        input,
+        button {
+            padding: 10px;
+        }
+    </style>
+    <title>CHAt</title>
+</head>
+
+<body>
+    <!--<input type="text" />-->
+    <button id="message" onclick="transmitMessage()">Send</button>
+    <script>
+        var socket = new WebSocket('ws://192.168.56.101:10000');
+        //var message=document.getElementById('message');
+        var ticket = 1;
+        var message = document.getElementById('message', ticket);
+        // var message = "ola";
+        function transmitMessage() {
+            socket.send(message.value);
+
+        }
+        socket.onmessage = function (e) {
+            var caixa = document.getElementById('message-box');
+            caixa.innerHTML += e.data + '<br/>';
+            console.log(e.data);
+        }
+    </script>
+    <div id="message-box" style=" border:1px solid #F00;height: 100px"></div>
+</body>
+
+</html>

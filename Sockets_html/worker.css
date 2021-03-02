@@ -1,0 +1,63 @@
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  background-color: #0a4a7a;
+  font-family: 'Potta One', cursive;
+
+  overflow: hidden;
+}
+
+
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 140px;
+}
+
+button{
+  height: 300px;
+  width: 640px;
+  border: none;
+  border-radius: 8px;
+
+  font-size: 64px;
+  font-weight: bold;
+
+  background-color: #d3d3d3;
+
+  font-family: 'Potta One', cursive;
+  color: #0a4a7a;
+}
+
+button:nth-child(1){
+  margin-right: 180px;
+}
+
+button:nth-child(2){
+  margin-left: 180px;
+}
+
+.ticket{
+  position: absolute;
+  bottom:0;
+  margin-left: 150px;
+  margin-bottom: 80px;
+  height: auto;
+
+  background-color:rgba(255, 0, 0, 0.8);
+  border-radius: 8px;
+  padding-left: 20px;
+  padding-right: 50px;
+
+  font-size: 48px;
+  font-weight: bold;
+  color: #d3d3d3;
+}
+
+.ticket p:nth-child(2){
+  margin-top: -20px;
+} 

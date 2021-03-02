@@ -1,0 +1,16 @@
+- todos os numero que estao no codigo sao dinamicos. o que tem que aparecer lá é resultado de operacoes matematicas que fora executaadas nos sockets
+
+
+
+-worker.php
+. quando se carrega nos buttons adiciona ou remove 1 digito no cliente atual do currentclient
+. ter em atençao que se o funcionario atender o cliente 10 e voltar atras para atender o 9, o seguinte tem que ser o 11
+
+-ticket.php
+. o proximo ticket é o somatorio do ticket atual + clientes em espera + 1
+. atencao que se acontecer o ponto2 citado no worker.php a formula tem que ser alterada.
+
+- calculo dos CLientes em espera
+sempre que se retirar um novo ticket tem que se adicionar +1 aos clientes em espera.
+qnd o funcionario passar para o cliente seguinte retirar 1 unidade aos clientes em espera. 
+Atençao que se acontecer o ponto2 citado no worker.php o calculo tem que ser reestruturado

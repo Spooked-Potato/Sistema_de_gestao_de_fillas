@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            input, button { padding: 10px; }
+        </style>
+    </head>
+
+    <script>
+
+        // Cria a conexão.
+        var socket  = new WebSocket('ws://192.168.1.33:8000');
+
+        // Quando conectar, avisar que conectou com sucesso.
+        socket.onopen = () => {
+            console.log("Connected successfully");
+        }
+
+        // Cada mensagem que recebe ele vai passar por aqui
+        socket.onmessage = (e) => { 
+
+            // Converte a mensagem para array.
+            var array = JSON.parse(e.data);
+
+            // Pega o indice 0 da array.
+            var comando = array[0];
+
+            if(comando == "senha_atual") {
+                // Exemplo: ["senha_atual", 1]
+                // se o indice 0 da array for senha_atual
+
+                // Senha que recebeu é o indice 1 da array.
+                let senha = array[1];
+
+                // Obtem o elemento com o id senha_atual e edita o que está dentro da tag para `A senha atual é ${senha}`
+                document.getElementById("senha_atual").innerHTML = `A senha atual é ${senha}`;
+            }
+
+            if(comando == "senha_atendida") {
+                // Exemplo: ["senha_atendida", 1]
+                // se o indice 0 da array for senha_atendida
+
+                // Senha que recebeu é o indice 1 da array.
+                let senha = array[1];
+
+                // Obtem o elemento com o id senha_atual e edita o que está dentro da tag para `A senha atual é ${senha}`
+                document.getElementById("senha_atendida").innerHTML = `A senha atual a ser atendida é ${senha}`;            
+            }
+        }
+    </script>
+
+    <body>
+        <button onclick="socket.send('pedir_senha');">Pedir senha!</button>
+        <p id="senha_atual">A senha atual é 0</p>
+        <p id="senha_atendida">A senha atual a ser atendida é 0</p>
+
+    </body>
+</html>
+
